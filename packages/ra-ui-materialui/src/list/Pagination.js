@@ -36,7 +36,7 @@ const Pagination = ({
         } else if (page > getNbPages()) {
             setPage(getNbPages());
         }
-    }, [page, setPage, getNbPages, total, perPage]);
+    }, [page, setPage, getNbPages]);
     const translate = useTranslate();
     const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'));
 
