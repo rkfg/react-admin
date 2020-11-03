@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ImageEye from '@material-ui/icons/RemoveRedEye';
 import { Link } from 'react-router-dom';
 import { linkToRecord, Record } from 'ra-core';
+import { LocationDescriptor } from 'history';
 
 import Button, { ButtonProps } from './Button';
 
@@ -34,6 +35,7 @@ interface Props {
     basePath?: string;
     record?: Record;
     icon?: ReactElement;
+    to?: string | LocationDescriptor;
 }
 
 export type ShowButtonProps = Props & ButtonProps;
@@ -51,7 +53,8 @@ const PureShowButton = memo(
         (props.record && nextProps.record
             ? props.record.id === nextProps.record.id
             : props.record == nextProps.record) && // eslint-disable-line eqeqeq
-        props.basePath === nextProps.basePath
+        props.basePath === nextProps.basePath &&
+        props.to === nextProps.to
 );
 
 export default PureShowButton;
